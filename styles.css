@@ -1,0 +1,45 @@
+body{
+    background-color: #2c2f33;
+}
+
+#calc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(6, 80px);
+}
+
+.display{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #fff;
+    font-size: xx-large;
+}
+
+#zero{
+    grid-column: span 2;
+}
+
+
+
+
+
+
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
