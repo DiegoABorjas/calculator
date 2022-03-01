@@ -21,6 +21,7 @@ let divide = function(num1, num2) {
     return num1 / num2;
 }
 
+//Operate function
 let operate = function(num1, operator, num2) {
     num1 = Number(num1);
     num2 = Number(num2);
@@ -35,6 +36,7 @@ let operate = function(num1, operator, num2) {
     } else return num1
 }
 
+//Function to clear the calculator
 let clearDisplay = function() {
     num1 = 0;
     num2 = 0;
@@ -44,6 +46,7 @@ let clearDisplay = function() {
     console.log('Display cleared')
 }
 
+// Main function for buttons selections and calculations
 let buttonSelector = function() {
     for(let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', function() {
@@ -63,15 +66,17 @@ let buttonSelector = function() {
             } else if (buttons[i].className == 'operator') {
                 if (display.innerHTML.includes('+')) {
                     console.log('operator already included')
-                } else if (display.innerHTML.includes('-')) {
+                } else if (display.innerHTML.includes('-') && operation !== '') {
                     console.log('operator already included')
                 } else if (display.innerHTML.includes('/')) {
                     console.log('operator already included')
                 } else if (display.innerHTML.includes('*')) {
                     console.log('operator already included')
                 } else display.innerHTML += buttons[i].value;
-                operation = buttons[i].value
-                console.log(operation)
+                if (operation == '') {
+                    operation = buttons[i].value
+                    console.log(operation)
+                } else console.log('operation already included')
             } else if (buttons[i].className == 'equals') {
                 displayValue = operate(num1, operation, num2);
                 console.log(`${display.innerHTML} equals ${displayValue}`);
